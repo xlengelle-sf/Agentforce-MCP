@@ -1,0 +1,59 @@
+{
+  "name": "agentforce-mcp-tool",
+  "version": "0.1.0",
+  "description": "MCP-compliant AgentForce API integration for Claude",
+  "type": "module",
+  "main": "dist/server.js",
+  "bin": {
+    "agentforce-mcp-tool": "./dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && node ./dist/server.js",
+    "prepare": "npm run build",
+    "postinstall": "node ./scripts/postinstall.js",
+    "watch": "tsc --watch",
+    "configure": "node ./scripts/configure.js"
+  },
+  "keywords": [
+    "claudeai",
+    "mcp",
+    "agentforce",
+    "salesforce",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.3.0",
+    "axios": "^1.6.7",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.1",
+    "enquirer": "^2.4.1",
+    "winston": "^3.11.0",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "@types/uuid": "^9.0.8",
+    "shx": "^0.3.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/agentforce-mcp-tool.git"
+  }
+}
