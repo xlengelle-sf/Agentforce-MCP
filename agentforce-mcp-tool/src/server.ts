@@ -52,7 +52,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   return { tools: toolDefinitions };
 });
 
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
+server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
   const { name, args } = request.tool;
   logger.info(`Calling tool: ${name}`, { args });
   

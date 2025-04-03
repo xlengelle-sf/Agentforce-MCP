@@ -24,10 +24,10 @@
     "api",
     "model-context-protocol"
   ],
-  "author": "",
+  "author": "Xavier Lengellé <xlengelle@salesforce.com>",
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.3.0",
+    "@modelcontextprotocol/sdk": "^1.8.0",
     "axios": "^1.6.7",
     "chalk": "^5.3.0",
     "dotenv": "^16.4.1",
@@ -59,6 +59,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/agentforce-mcp-server.git"
+    "url": "https://github.com/xlengelle-sf/Agentforce-MCP.git"
+  },
+  "homepage": "https://github.com/xlengelle-sf/Agentforce-MCP/tree/main/agentforce-mcp-server",
+  "bugs": {
+    "url": "https://github.com/xlengelle-sf/Agentforce-MCP/issues"
   }
 }

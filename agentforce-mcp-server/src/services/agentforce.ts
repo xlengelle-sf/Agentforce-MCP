@@ -83,6 +83,11 @@ export class AgentForceService {
         instanceUrl: this.instanceUrl
       });
 
+      // Guard against null values - TypeScript safety
+      if (!this.accessToken || !this.instanceUrl) {
+        throw new Error('Authentication failed: Missing token or instance URL in response');
+      }
+      
       return {
         accessToken: this.accessToken,
         instanceUrl: this.instanceUrl
@@ -122,6 +127,11 @@ export class AgentForceService {
         bypassUser: true
       };
 
+      // Guard against null values - TypeScript safety
+      if (!this.accessToken) {
+        throw new Error('Not authenticated: Missing access token');
+      }
+      
       // Make request
       const response = await axios.post(
         `${this.config.apiUrl}/einstein/ai-agent/v1/agents/${this.config.agentId}/sessions`,
@@ -142,6 +152,11 @@ export class AgentForceService {
         sessionId: this.sessionId
       });
 
+      // Guard against null values - TypeScript safety
+      if (!this.sessionId) {
+        throw new Error('Session creation failed: Missing session ID in response');
+      }
+      
       return {
         sessionId: this.sessionId
       };
@@ -186,6 +201,11 @@ export class AgentForceService {
         }
       };
 
+      // Guard against null values - TypeScript safety
+      if (!this.accessToken || !this.sessionId) {
+        throw new Error('Not authenticated or missing session: Please authenticate and create a session first');
+      }
+      
       // Make request
       const response = await axios.post(
         `${this.config.apiUrl}/einstein/ai-agent/v1/sessions/${this.sessionId}/messages`,

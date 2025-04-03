@@ -1,4 +1,12 @@
-# AgentForce MCP Server
+# 🚀 AgentForce MCP Server
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Salesforce-AgentForce-blue?style=for-the-badge" alt="Salesforce AgentForce" />
+  <img src="https://img.shields.io/badge/MCP-server-blueviolet?style=for-the-badge" alt="MCP Server" />
+  <img src="https://img.shields.io/badge/node.js-18+-green?style=for-the-badge" alt="Node.js 18+" />
+</div>
+
+<br>
 
 A Model Context Protocol (MCP) compliant server for Salesforce AgentForce API integration.
 
@@ -6,16 +14,19 @@ A Model Context Protocol (MCP) compliant server for Salesforce AgentForce API in
 
 This server acts as a gateway between Claude Desktop MCP tools and the Salesforce AgentForce API. It follows the Model Context Protocol standard for maximum compatibility with Claude and other MCP-compatible clients.
 
-Key features:
-- Full MCP standard compliance
-- Secure API key authentication
-- Session management with automatic cleanup
-- Support for multiple transport types (Stdio and HTTP SSE)
-- Clean, modern TypeScript implementation
+### Key Features
+
+- ✅ **Full MCP Compliance**: Implements the complete MCP standard
+- 🔐 **Secure Authentication**: API key-based server auth + Salesforce OAuth 
+- ⚡ **Efficient Session Management**: Smart session handling with automatic cleanup
+- 📡 **Multiple Transports**: Support for both stdio and HTTP SSE connections
+- 🔄 **Complete AgentForce Workflow**: Auth > Session > Messaging flow
+- 📝 **Detailed Logging**: Comprehensive logs for easy debugging
+- 🧩 **Modular Design**: Clean TypeScript implementation with separation of concerns
 
 ## 🚀 Quick Start
 
-### One-line Installation
+### Option 1: One-line Installation
 
 ```bash
 npx agentforce-mcp-server@latest
@@ -26,17 +37,38 @@ This will:
 2. Run the post-installation guide
 3. Provide configuration instructions
 
+### Option 2: Manual Installation
+
+```bash
+# Install globally
+npm install -g agentforce-mcp-server
+
+# Run configuration wizard
+npx agentforce-mcp-server configure
+```
+
 ### Configuration
 
-Run the configuration wizard:
+Run the interactive configuration wizard:
 
 ```bash
 npx agentforce-mcp-server configure
 ```
 
-### Start the Server
+This will:
+- Create a config directory in your home folder
+- Guide you through setting up the server
+- Store configuration securely
 
-Start with HTTP Server-Sent Events support (recommended for production):
+### Starting the Server
+
+#### For Development (stdio mode)
+
+```bash
+npx agentforce-mcp-server
+```
+
+#### For Production (HTTP SSE mode)
 
 ```bash
 npx agentforce-mcp-server --http
@@ -65,22 +97,36 @@ This server is designed to work with the AgentForce MCP Tool client:
 The AgentForce MCP solution consists of two components:
 
 1. **MCP Server (This Package)**: Handles communication with Salesforce's AgentForce API.
+   - Implements server-side MCP protocol
+   - Manages authentication with Salesforce
+   - Maintains sessions and message sequencing
+   - Provides secure API endpoints
 
 2. **MCP Tool**: Runs locally with Claude Desktop and provides MCP tools for interacting with this server.
+   - Implements client-side MCP protocol
+   - Handles Claude Desktop integration
+   - Provides tool definitions for Claude to use
 
 This separation provides:
 - Centralized credential management
 - Multi-user support
 - Enhanced security
+- Simplified deployment
 
 ## 📋 Advanced Setup
 
-### Manual Installation
+### Source Code Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/agentforce-mcp-server.git
-cd agentforce-mcp-server
+git clone https://github.com/xlengelle-sf/Agentforce-MCP.git
+cd Agentforce-MCP/agentforce-mcp-server
+
+# Install dependencies
+npm install
+
+# Build the TypeScript code
+npm run build
 
 # Run setup script
 ./scripts/setup.sh
@@ -93,17 +139,19 @@ npm start -- --http
 
 The server supports both JSON configuration and environment variables:
 
-- `PORT`: Server port (default: 3000)
-- `DEFAULT_API_KEY`: API key for authentication
-- `NODE_ENV`: Environment setting (development/production)
-- `LOG_LEVEL`: Logging detail (debug/info/warn/error)
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Server HTTP port | 3000 |
+| `DEFAULT_API_KEY` | API key for authentication | Generated randomly |
+| `NODE_ENV` | Environment setting | development |
+| `LOG_LEVEL` | Logging detail | info |
 
 ## 🔒 Security
 
-- API key authentication for all requests
-- No hardcoded credentials in the server code
-- Automatic session cleanup
-- All sensitive information provided by the client
+- **API Key Authentication**: All requests require valid API key
+- **No Hardcoded Credentials**: All sensitive information stored securely
+- **Automatic Session Cleanup**: Inactive sessions are removed
+- **Secure by Default**: Minimal configuration required for secure operation
 
 ## 🌐 Deployment
 
@@ -134,6 +182,10 @@ All API requests require the `x-api-key` header with the server API key.
 | `/api/messages` | POST | Send a message |
 | `/api/status/:clientId` | GET | Get client status |
 | `/api/reset` | POST | Reset a client session |
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 

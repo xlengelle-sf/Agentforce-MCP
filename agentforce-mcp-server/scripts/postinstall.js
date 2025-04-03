@@ -66,5 +66,5 @@ console.log('   (Use your server URL, e.g., http://localhost:3000)');
 console.log('');
 
 console.log(`${colors.blue}For more information, visit:${colors.reset}`);
-console.log('https://github.com/yourusername/agentforce-mcp-server');
+console.log('https://github.com/xlengelle-sf/Agentforce-MCP/tree/main/agentforce-mcp-server');
 console.log('');

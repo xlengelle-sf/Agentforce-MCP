@@ -72,5 +72,5 @@ console.log('- agentforce_update_config: Update configuration');
 console.log('');
 
 console.log(`${colors.blue}For more information, visit:${colors.reset}`);
-console.log('https://github.com/yourusername/agentforce-mcp-tool');
+console.log('https://github.com/xlengelle-sf/Agentforce-MCP/tree/main/agentforce-mcp-tool');
 console.log('');

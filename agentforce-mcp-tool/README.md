@@ -1,22 +1,32 @@
-# AgentForce MCP Tool
+# 🚀 AgentForce MCP Tool
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Salesforce-AgentForce-blue?style=for-the-badge" alt="Salesforce AgentForce" />
+  <img src="https://img.shields.io/badge/Claude-MCP_Tool-blueviolet?style=for-the-badge" alt="Claude MCP Tool" />
+  <img src="https://img.shields.io/badge/node.js-18+-green?style=for-the-badge" alt="Node.js 18+" />
+</div>
+
+<br>
 
 A Model Context Protocol (MCP) compliant tool for connecting Claude AI to Salesforce AgentForce.
 
 ## 💡 Overview
 
-This tool enables Claude to interact with Salesforce's AgentForce API, allowing you to:
+This tool enables Claude to interact with Salesforce's AgentForce API, giving your AI assistant powerful capabilities to work with your Salesforce data and AI agents.
 
-- Authenticate with Salesforce AgentForce
-- Create and manage AgentForce sessions
-- Send messages to agents and receive responses
-- Configure connection parameters
-- Access Salesforce data via AgentForce
+### Key Capabilities
 
-The tool follows the Model Context Protocol (MCP) standard for maximum compatibility with Claude Desktop and other MCP-compatible clients.
+- 🔐 **Authentication**: Secure OAuth flow with Salesforce
+- 📊 **Session Management**: Create and manage agent sessions
+- 💬 **Message Exchange**: Send messages to agents and process responses
+- ⚙️ **Configuration**: Easy setup with interactive wizard
+- 🔄 **AgentForce Integration**: Complete AgentForce API support
+- 🧰 **MCP Compliance**: Full Model Context Protocol implementation
+- 🛡️ **Security**: Secure credential storage
 
 ## 🚀 Quick Start
 
-### One-line Installation
+### Option 1: One-line Installation
 
 ```bash
 npx agentforce-mcp-tool@latest
@@ -26,6 +36,16 @@ This will:
 1. Install the tool globally
 2. Run the post-installation guide
 3. Provide configuration instructions
+
+### Option 2: Manual Installation
+
+```bash
+# Install globally
+npm install -g agentforce-mcp-tool
+
+# Run configuration wizard
+npx agentforce-mcp-tool configure
+```
 
 ### Configure Claude Desktop
 
@@ -47,13 +67,18 @@ Location of the config file:
 - **Linux**: `~/.config/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
 
-### Configure AgentForce Credentials
+### Setup AgentForce Credentials
 
 Run the configuration wizard:
 
 ```bash
 npx agentforce-mcp-tool configure
 ```
+
+This will:
+- Guide you through connecting to the server
+- Set up your AgentForce credentials
+- Store configuration securely
 
 ## 🛠️ Available Tools
 
@@ -68,11 +93,29 @@ npx agentforce-mcp-tool configure
 | `agentforce_reset` | Reset the client connection |
 | `agentforce_update_config` | Update configuration |
 
+## 📝 Using With Claude
+
+Once installed and configured, Claude will have access to AgentForce capabilities through natural language. Here are some examples:
+
+```
+Can you authenticate to AgentForce for me?
+
+Create a new session with the Customer Support agent.
+
+Ask the AgentForce agent about our Q3 sales numbers.
+
+Check the status of our AgentForce connection.
+```
+
 ## 🏗️ Architecture
 
 The AgentForce MCP solution consists of two components:
 
 1. **MCP Tool (This Package)**: Runs locally with Claude Desktop and provides MCP tools for interacting with the AgentForce API.
+   - Implements client-side MCP protocol
+   - Manages tool definitions
+   - Handles Claude requests
+   - Secure configuration storage
 
 2. **MCP Server**: Handles communication with Salesforce's AgentForce API. The server can be:
    - Self-hosted locally
@@ -88,12 +131,12 @@ The AgentForce MCP solution consists of two components:
 
 ## 🔧 Advanced Setup
 
-### Local Development
+### Source Code Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/agentforce-mcp-tool.git
-cd agentforce-mcp-tool
+git clone https://github.com/xlengelle-sf/Agentforce-MCP.git
+cd Agentforce-MCP/agentforce-mcp-tool
 
 # Install dependencies
 npm install
@@ -107,18 +150,19 @@ npm install -g .
 
 ### Server Setup
 
-If you need to self-host the server component, see the [AgentForce MCP Server](https://github.com/yourusername/agentforce-mcp-server) repository.
+If you need to self-host the server component, see the [AgentForce MCP Server](https://github.com/xlengelle-sf/Agentforce-MCP/tree/main/agentforce-mcp-server) directory in the repository.
 
 ## 🔒 Security
 
-- No credentials are stored in the tool code
-- Configuration is stored in your user directory
-- All communication with AgentForce uses secure connections
-- API keys are used for server authentication
+- **Secure Storage**: No credentials are stored in the tool code
+- **Local Configuration**: Settings stored in your user directory
+- **Encrypted Communication**: All API communication uses HTTPS
+- **API Key Authentication**: Server authentication with API keys
+- **Minimal Permissions**: Only requests necessary access
 
-## 📚 Documentation
+## 🤝 Contributing
 
-For more detailed documentation on using the AgentForce MCP Tool, see the [User Guide](https://github.com/yourusername/agentforce-mcp-tool/wiki).
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 

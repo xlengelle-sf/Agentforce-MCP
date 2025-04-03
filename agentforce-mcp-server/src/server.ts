@@ -149,7 +149,7 @@ function registerHandlers(server: MCPServer) {
   });
 
   // Call tool handler
-  server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
     const { name, args } = request.tool;
     logger.info(`Tool called: ${name}`);
 
